@@ -1,0 +1,258 @@
+// pages/dashboard/dashboard.scss
+
+.dashboard-wrapper {
+    min-height: 100vh;
+    background: #f7fafc;
+}
+
+// ── Navbar ──────────────────────────────────────
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a202c;
+    }
+}
+
+.navbar-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+// ── Buttons ─────────────────────────────────────
+.btn-add {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+
+    &:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+}
+
+.btn-logout {
+    background: transparent;
+    color: #e53e3e;
+    border: 1.5px solid #e53e3e;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #fff5f5;
+    }
+}
+
+// ── Main Content ─────────────────────────────────
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.dashboard-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+
+    h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin: 0;
+    }
+
+    .task-count {
+        font-size: 0.9rem;
+        color: #718096;
+        background: #edf2f7;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+    }
+}
+
+// ── Task Grid ────────────────────────────────────
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.task-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s, transform 0.2s;
+
+    &:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+}
+
+.task-card-header {
+    .task-id {
+        font-size: 0.75rem;
+        color: #a0aec0;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+}
+
+.task-card-body {
+    flex: 1;
+
+    .task-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin: 0 0 0.4rem;
+    }
+
+    .task-body {
+        font-size: 0.875rem;
+        color: #718096;
+        line-height: 1.5;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+.task-card-footer {
+    display: flex;
+    gap: 0.6rem;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 0.75rem;
+
+    button {
+        flex: 1;
+        padding: 0.5rem;
+        border-radius: 7px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: opacity 0.2s;
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.btn-edit {
+    background: #ebf4ff;
+    color: #3182ce;
+
+    &:hover:not(:disabled) {
+        background: #bee3f8;
+    }
+}
+
+.btn-delete {
+    background: #fff5f5;
+    color: #e53e3e;
+
+    &:hover:not(:disabled) {
+        background: #fed7d7;
+    }
+}
+
+// ── States ───────────────────────────────────────
+.loading-state {
+    text-align: center;
+    padding: 4rem;
+    color: #718096;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #718096;
+
+    .empty-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.alert {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+
+    &-error {
+        background: #fff5f5;
+        color: #c53030;
+        border: 1px solid #feb2b2;
+    }
+}

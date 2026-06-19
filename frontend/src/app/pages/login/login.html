@@ -1,0 +1,59 @@
+<!-- pages/login/login.html -->
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <!-- Logo / Title -->
+        <div class="login-header">
+            <div class="logo">📋</div>
+            <h1>Task Manager</h1>
+            <p>{{ isRegisterMode() ? 'Create your account' : 'Sign in to your account' }}</p>
+        </div>
+
+        <!-- Success message (shown after register) -->
+        @if (successMessage()) {
+        <div class="alert alert-success">{{ successMessage() }}</div>
+        }
+
+        <!-- Error message -->
+        @if (errorMessage()) {
+        <div class="alert alert-error">{{ errorMessage() }}</div>
+        }
+
+        <!-- Form -->
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" [(ngModel)]="email" name="email" placeholder="you@example.com"
+                    autocomplete="email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" type="password" [(ngModel)]="password" name="password" placeholder="••••••••"
+                    autocomplete="current-password" required />
+            </div>
+
+            <button type="submit" class="btn-primary" [disabled]="isLoading()">
+                @if (isLoading()) {
+                <span>Loading...</span>
+                } @else {
+                <span>{{ isRegisterMode() ? 'Create Account' : 'Sign In' }}</span>
+                }
+            </button>
+
+        </form>
+
+        <!-- Toggle between Login / Register -->
+        <div class="toggle-mode">
+            @if (isRegisterMode()) {
+            Already have an account?
+            <button type="button" class="btn-link" (click)="toggleMode()">Sign In</button>
+            } @else {
+            Don't have an account?
+            <button type="button" class="btn-link" (click)="toggleMode()">Register</button>
+            }
+        </div>
+
+    </div>
+</div>

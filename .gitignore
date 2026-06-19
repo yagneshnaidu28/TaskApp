@@ -1,0 +1,21 @@
+# Virtual environments
+backend/venv/
+backend/.env
+
+# Node/Angular dependencies and build outputs
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+
+# Python compiled files
+**/__pycache__/
+**/*.pyc
+
+# IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
