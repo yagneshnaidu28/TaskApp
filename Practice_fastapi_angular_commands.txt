@@ -1,0 +1,120 @@
+MY Goal:i want to practice developing a website with simple crud operations to understand all the concepts of fastapi like routing, jwt token ,authentication , for frontend i would like to use angular js i already know some concpets like services components routing i also want to use this concepts also 
+
+Your Guidance : i need you to act as teacher and give me each and every steps to make this website for practice 
+
+
+Expected Output: i want you to give me step by step to create api first and then creating frontend for that api 
+so first give me step by step with explanation how to create a fastapi and then after i finish those steps we will go on with angular 
+one more thing i need developer way of creating project like creating .env file, virtual env whatever needed and needs to be followed as a developer 
+
+For database use MySQl
+
+i here by declare steps expected our project gets created 
+
+i need an login page where i should be able to login and also authentication to be taken place after login it should contain dashboard which should contains
+1.button to add new information which should lead us to form in which should lead to new component form_fill
+can add new title and body which will be saved to our main models and updated at dashboard
+
+ many grids containing information which are currently inside database
+
+id : unique_id : primary key
+title: string 
+body:string 
+also includes 2 buttons delete and update update leads to form which we need to update when clicked on specific task or grid , delete button to delete the grid from database and also dashboard 
+
+
+
+
+
+Mandatory Decorum : try to give steps like you understand how fresher developer writes code right ? like first create models and then create some form, then work with authentication like we updating code we are so each and every steps to be aligned in a exact way and also relate each other step try to give one-off latest version of code like python 3.12.10 , angular latest
+
+
+
+Strict Follow: follow each and every step very carefully steps are to be related 
+
+
+
+
+
+
+
+
+commands: 
+python -m venv venv
+
+venv\Scripts\activate
+
+mkdir app
+
+cd app
+
+mkdir models schemas routers core
+
+# we are basically an empty init.py file to each and every directory
+type nul > __init__.py
+
+cd models
+type nul > __init__.py
+cd ..
+cd schemas
+type nul > __init__.py
+cd ..
+cd routers
+type nul > __init__.py
+cd ..
+cd core
+type nul > __init__.py
+cd ..
+
+
+mkdir crud
+
+
+
+
+# Go back to backend/ folder
+cd backend   # if you're not already there
+
+pip install fastapi==0.115.5
+pip install uvicorn[standard]==0.32.1
+pip install sqlalchemy==2.0.36
+pip install pymysql==1.1.1
+pip install python-dotenv==1.0.1
+pip install python-jose[cryptography]==3.3.0
+pip install passlib[bcrypt]==1.7.4
+pip install python-multipart==0.0.17
+pip install pydantic[email]==2.10.3
+pip install cryptography==43.0.3
+
+# Save all installed packages
+pip freeze > requirements.txt
+
+
+
+
+
+mysql> CREATE DATABASE task_manager_db;
+
+
+
+
+
+
+
+
+
+
+ANGULAR:
+mkdir -p core/guards core/interceptors core/services models pages/login pages/dashboard pages/task-form pages/task-edit
+
+
+uvicorn app.main:app --reload --port 8000
+
+
+ng serve
+
+
+
+
+
+
